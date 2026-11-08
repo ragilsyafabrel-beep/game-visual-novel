@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hari yang Baru</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game">
+<img id="background" src="" alt="">
+<div id="characters"></div>
+<div id="shade"></div>
+
+<div id="topbar" style="display:none">
+ <div>
+  <button onclick="togglePause()">PAUSE</button>
+  <button onclick="openHistory()">HISTORY</button>
+ </div>
+ <div>
+  <button id="skipButton" onclick="toggleSkip()">SKIP: OFF</button>
+  <button onclick="openSave()">SAVE</button>
+ </div>
+</div>
+
+<div id="dialogueArea" style="display:none">
+ <div id="sceneInfo">06.45 — Jalan Menuju Sekolah</div>
+ <div id="speaker"></div>
+ <div id="dialogueBox" onclick="advanceDialogue()"><span id="dialogueText"></span></div>
+ <div id="choices"></div>
+</div>
+
+<div id="titleScreen" class="screen active">
+ <h1>Hari yang Baru</h1>
+ <p>Sebuah cerita tentang awal yang baru.</p>
+ <button onclick="startNewGame()">MULAI</button>
+ <button onclick="openLoad()">LOAD GAME</button>
+ <div class="menu-credit">A & A — Illustrator<br>ChatGPT — Coding</div>
+</div>
+
+<div id="nameScreen" class="screen">
+ <h2>Siapa namamu?</h2>
+ <p>Masukkan nama yang akan digunakan dalam cerita.</p>
+ <input id="nameInput" maxlength="18" placeholder="Nama kamu...">
+ <button onclick="beginStory()">MULAI CERITA</button>
+ <button onclick="showScreen('titleScreen')">KEMBALI</button>
+</div>
+
+<div id="pauseScreen" class="screen">
+ <div class="panel">
+  <h2>PAUSE</h2>
+  <button onclick="resumeGame()">LANJUTKAN</button>
+  <button onclick="openSave()">SAVE GAME</button>
+  <button onclick="openHistory()">HISTORY</button>
+  <button onclick="openSettings()">PENGATURAN</button>
+  <button onclick="returnToTitle()">MENU UTAMA</button>
+ </div>
+</div>
+
+<div id="historyScreen" class="screen">
+ <div class="panel">
+  <h2>HISTORY</h2>
+  <div id="historyList"></div>
+  <button onclick="closeHistory()">KEMBALI</button>
+ </div>
+</div>
+
+<div id="saveScreen" class="screen">
+ <div class="panel">
+  <h2 id="saveTitle">SAVE GAME</h2>
+  <div id="saveSlots"></div>
+  <button onclick="closeSave()">KEMBALI</button>
+ </div>
+</div>
+
+<div id="settingsScreen" class="screen">
+ <div class="panel">
+  <h2>PENGATURAN</h2>
+  <p>Volume suara</p>
+  <input id="volumeControl" type="range" min="0" max="100" value="65" oninput="changeVolume(this.value)">
+  <button onclick="closeSettings()">KEMBALI</button>
+ </div>
+</div>
+
+<div id="galleryScreen" class="screen">
+ <div class="panel">
+  <h2>GALERI KARAKTER</h2>
+  <div class="gallery-grid">
+   <div class="gallery-card"><img src="Tak berjudul83_0000-51-45_20261105215649.png"><div>Akari</div></div>
+   <div class="gallery-card"><img src="Tak berjudul87_20261105215713.png"><div>Renji</div></div>
+   <div class="gallery-card"><img src="Tak berjudul86_20261105215827.png"><div>Haruto</div></div>
+   <div class="gallery-card"><img src="Tak berjudul83_20261105215550.png"><div>Yuna</div></div>
+  </div>
+  <button onclick="closeGallery()">KEMBALI</button>
+ </div>
+</div>
+
+<div id="ending">
+ <h1>Bersambung...</h1>
+ <p>Terima kasih sudah bermain!</p>
+ <button onclick="openGallery()">GALERI KARAKTER</button>
+ <button onclick="returnToTitle()">MENU UTAMA</button>
+ <p class="small-note">Hari yang Baru</p>
+</div>
+
+<audio id="windAudio" src="angin_pelan_preview.wav" loop></audio>
+<audio id="schoolAudio" src="keramaian_sekolah_preview.wav" loop></audio>
+<audio id="bellAudio" src="bel_sekolah_preview.wav"></audio>
+<audio id="typingAudio" src="suara_teks_preview.wav" loop></audio>
+<audio id="tapAudio" src="suara_tap_layar_preview.wav"></audio>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
